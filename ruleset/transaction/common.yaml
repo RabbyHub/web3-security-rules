@@ -1,0 +1,6 @@
+- description: The domain is in domain blocklist.
+  level: 3
+  logic: domain in domain_set.domain_blocklist
+- description: The interaction address is in contract address blocklist.
+  level: 3
+  logic: tx.to in address_set.contract_address_blocklist
