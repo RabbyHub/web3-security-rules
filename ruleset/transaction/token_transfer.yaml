@@ -6,7 +6,7 @@
   logic: bool(token_transfer) and chain not in get_address(token_transfer.to).used_chain_list
 - description: The recipient address has no transaction history and may be a new address.
   level: 1
-  logic: bool(token_transfer) and get_addr_to_addr_transfer_count(token_transfer.from_, tokenTransfer.to, chain) == 0
+  logic: bool(token_transfer) and get_addr_to_addr_transfer_count(chain, token_transfer.from_, tokenTransfer.to) == 0
 - description: The recipient ENS address has zero-width joiner.
   level: 2
   logic: bool(token_transfer) and has_risk_ens_character(get_ens_name(token_transfer.to))
