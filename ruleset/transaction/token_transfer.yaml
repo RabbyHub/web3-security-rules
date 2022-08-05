@@ -1,10 +1,10 @@
 - description: The recipient address is a token contract address.
   level: 3
   logic: bool(token_transfer) and bool(get_token(token_transfer.to))
-- description: The recipient address does NOT exist on the current chain.
+- description: The recipient address has no transaction history and may be a new address.
   level: 2
   logic: bool(token_transfer) and chain not in get_address(token_transfer.to).used_chain_list
-- description: The recipient address has no transaction history and may be a new address.
+- description: You've NEVER transferred to this address before.
   level: 1
   logic: bool(token_transfer) and get_addr_to_addr_transfer_count(chain, token_transfer.from_, token_transfer.to) == 0
 - description: The recipient ENS address has zero-width joiner.
