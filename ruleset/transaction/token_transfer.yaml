@@ -1,7 +1,7 @@
 - description: The recipient address is a token contract address.
   level: 3
   logic: bool(token_transfer) and bool(get_token(token_transfer.to))
-- description: Receipient may be a new address on this chain with no transaction history.
+- description: Recipient may be a new address on this chain with no transaction history.
   level: 2
   logic: bool(token_transfer) and chain not in get_address(token_transfer.to).used_chain_list
 - description: You've NEVER transferred to this address before.
