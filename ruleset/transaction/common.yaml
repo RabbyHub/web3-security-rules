@@ -4,3 +4,6 @@
 - description: The interaction address is in contract address blocklist.
   level: 3
   logic: tx.to in address_set.contract_address_blocklist
+- description: The recipient contract address is not deployed on the current chain.
+  level: 3
+  logic: tx.value > 0 and tx.data != '0x' and not get_contract(chain, tx.to)
