@@ -1,0 +1,3 @@
+- description: You're signing approval for an EOA address.
+  level: 3
+  logic: bool(token_approve) and not bool(token_approve.spender_contract)
