@@ -10,6 +10,3 @@
 - description: The recipient ENS address has zero-width joiner.
   level: 2
   logic: bool(token_transfer) and has_risk_ens_character(get_ens_name(token_transfer.to))
-- description: The recipient address is a multisig address that exists on ANOTHER chain.
-  level: 3
-  logic: bool(token_transfer) and any([contract.is_multisig for contract in get_address(token_transfer.to).contract_list if contract.chain != chain])
